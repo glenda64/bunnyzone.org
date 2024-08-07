@@ -1,0 +1,14 @@
+body {
+  max-width: 420px;
+  margin: auto;
+  font-family: "arial", sans-serif;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center
+}
+
+ul {
+  list-style-type: "🍄 ";
+}
