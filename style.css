@@ -3,6 +3,7 @@ body {
   margin: auto;
   font-family: "arial", sans-serif;
   padding: 0 20px;
+  text-align: justify;
 }
 
 h1 {
@@ -11,4 +12,15 @@ h1 {
 
 ul {
   list-style-type: "🍄 ";
+}
+
+img {
+  width: 100%;
+  border: 10px solid grey;
+  box-sizing: border-box;
+}
+
+p.cap {
+  font-style: italic;
+  text-align: center;
 }
