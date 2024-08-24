@@ -37,6 +37,7 @@ h1::selection, h2::selection, h3::selection {
 img {
   display: block;
   margin: auto;
+  max-width: 100%;
 }
 
 figcaption {
