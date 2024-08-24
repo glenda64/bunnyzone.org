@@ -1,4 +1,4 @@
-window.onload = () => { setup(); setInterval(tick, 100) }
+window.onload = () => { setup(); setInterval(tick, 150) }
 
 let canvas, ctx, id, grid, grid2, w, h, t;
 
@@ -42,10 +42,9 @@ function step() {
     n += grid[zy * w +  x];
     n += grid[zy * w + zx];
 
-    if (n < 2) grid2[i] = 0;
-    else if (n > 3) grid2[i] = 0;
-    else if (n == 3) grid2[i] = 1;
-    else grid2[i] = grid[i];
+    if (n == 3) grid2[i] = 1;
+    else if (n == 2) grid2[i] = grid[i];
+    else grid2[i] = 0;
   }
 
   for (let i = 0; i < w * h; i++) {
@@ -65,6 +64,6 @@ function tick() {
   ctx.putImageData(id, 0, 0);
 
   t++;
-  if (t >= 100) randomize();
+  if (t >= 256) randomize();
   else step();
 }
