@@ -55,9 +55,9 @@ function step() {
 function tick() {
   for (let i = 0; i < w * h; i += 3) {
     let j = Math.floor(i / 3) * 4;
-    id.data[j + 0] = grid[i    ] * 255;
-    id.data[j + 1] = grid[i + 1] * 255;
-    id.data[j + 2] = grid[i + 2] * 255;
+    id.data[j + 0] = (1 - grid[i    ]) * 255;
+    id.data[j + 1] = (1 - grid[i + 1]) * 255;
+    id.data[j + 2] = (1 - grid[i + 2]) * 255;
     id.data[j + 3] = 255;
   }
 
