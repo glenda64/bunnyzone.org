@@ -1,12 +1,13 @@
 window.onload = () => { setup(); setInterval(tick, 150) }
 
 let canvas, ctx, id, grid, grid2, w, h, t;
+let density = 0.2;
 
 function randomize() {
   t = 0;
   grid = []; grid2 = [];
   for (let i = 0; i < w * h; i++) {
-    grid.push(Math.floor(Math.random() * 2));
+    grid.push(Math.random() < density ? 1 : 0);
     grid2.push(0);
   }
 }
