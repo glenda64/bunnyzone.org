@@ -5,10 +5,11 @@ let density = 0.2;
 
 function randomize() {
   t = 0;
-  grid = []; grid2 = [];
+  grid = new Uint8Array(w * h);
+  grid2 = new Uint8Array(w * h);
   for (let i = 0; i < w * h; i++) {
-    grid.push(Math.random() < density ? 1 : 0);
-    grid2.push(0);
+    grid[i] = Math.random() < density ? 1 : 0;
+    grid2[i] = 0;
   }
 }
 

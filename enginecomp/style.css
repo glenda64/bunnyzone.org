@@ -38,7 +38,7 @@ h1::selection, h2::selection, h3::selection {
   background-color: #fff;
 }
 
-img {
+img, canvas {
   display: block;
   margin: auto;
   max-width: 100%;
