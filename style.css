@@ -15,12 +15,17 @@ ul {
 }
 
 img {
+  display: block;
   width: 100%;
+  margin: auto;
   border: 10px solid grey;
   box-sizing: border-box;
 }
 
-p.cap {
-  font-style: italic;
-  text-align: center;
+canvas {
+  display: block;
+  width: 50%;
+  margin: auto;
+  image-rendering: optimizeSpeed;
+  image-rendering: pixelated;
 }
