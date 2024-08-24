@@ -38,3 +38,7 @@ img {
   display: block;
   margin: auto;
 }
+
+figcaption {
+  text-align: center;
+}
