@@ -5,16 +5,32 @@ const EMPTY = 0;
 const SILVER = 0b0000_0000;
 const RED =    0b1000_0000;
 
-const OBELISK = 0b0000_0000;
-const STACKED = 0b0001_0000;
-const PYRAMID = 0b0010_0000;
-const DJED    = 0b0011_0000;
-const PHAROAH = 0b0100_0000;
+const OBELISK = 0b0001_0000;
+const STACKED = 0b0010_0000;
+const PYRAMID = 0b0011_0000;
+const DJED    = 0b0100_0000;
+const PHAROAH = 0b0101_0000;
 
 const R1 = 0b0000_0000;
 const R2 = 0b0000_0100;
 const R3 = 0b0000_1000;
 const R4 = 0b0000_1100;
+
+const TILESIZE = 64;
+const TILEMARGIN = 4;
+const PIECESIZE = TILESIZE - 2 * TILEMARGIN
+
+const TILELAYOUT = new Map([
+  [SILVER | PHAROAH, {x: 0, y: 0}],
+  [SILVER | DJED | R1, {x: 1, y: 0}],
+  [SILVER | DJED | R2, {x: 2, y: 0}],
+  [SILVER | PYRAMID | R1, {x: 3, y: 0}],
+  [SILVER | PYRAMID | R2, {x: 4, y: 0}],
+  [SILVER | PYRAMID | R3, {x: 5, y: 0}],
+  [SILVER | PYRAMID | R4, {x: 6, y: 0}],
+  [SILVER | OBELISK, {x: 7, y: 0}],
+  [SILVER | STACKED, {x: 0, y: 1}]
+]);
 
 let boardimg, tilesimg;
 let canvas, ctx;
@@ -22,17 +38,6 @@ let board = new Uint8Array(W * H);
 
 earlysetup();
 window.onload = () => { setup(); setInterval(ply, 1000); }
-
-function ply() {
-  console.log("ply");
-}
-
-function boardsetup() {
-  set(3, 1, SILVER | PYRAMID | R4);
-  set(4, 1, SILVER | STACKED);
-  set(5, 1, SILVER | PHAROAH);
-  set(6, 1, SILVER | STACKED);
-}
 
 function earlysetup() {
   boardimg = new Image();
@@ -47,14 +52,40 @@ function setup() {
   ctx = canvas.getContext("2d");
 }
 
+function ply() {
+  console.log("ply");
+  drawboard();
+}
+
+function boardsetup() {
+  board[0 * W + 2] = SILVER | PYRAMID | R4;
+  // TODO
+}
+
+function drawboard() {
+  ctx.drawImage(boardimg, 0, 0);
+  for (let i = 0; i < W * H; i++) {
+    drawpiece(
+      board[i],
+      0,0
+      //i % W * TILESIZE + TILEMARGIN,
+      //(H - Math.floor(i / W)) * TILESIZE + TILEMARGIN
+    );
+  }
+}
+
+function drawpiece(piece, x, y) {
+  if (piece == EMPTY) return;
+
+  let p = TILELAYOUT.get(piece);
+  let sx = p.x * PIECESIZE, sy = p.y * PIECESIZE;
+  ctx.drawImage(
+    tilesimg,
+    sx, sy, PIECESIZE, PIECESIZE,
+    x, y, PIECESIZE, PIECESIZE
+  );
+}
+
 function ispiece(x, piece) {
   return x & piece == piece;
-}
-
-function set(file, rank, piece) {
-  board[file - 1][rank - 1] = piece;
-}
-
-function get(file, rank) {
-  return board[file - 1][rank - 1];
 }
