@@ -15,15 +15,12 @@ code {
 }
 
 a {
-  color: #c00;
+  color: #f00;
 }
 
 ::selection {
-  background-color: #ddd;
-}
-
-h1::selection, h2::selection, h3::selection {
-  background-color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 img, canvas {
