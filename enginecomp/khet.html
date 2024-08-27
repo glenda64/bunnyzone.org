@@ -9,8 +9,8 @@
   <body>
     <h1>How to play Khet</h1>
     <p><b>Summary:</b> Khet is a two-player game. The object of the game is to hit the opponent's pharoah piece with a laser while protecting your own. On your turn, you may move a piece a single square or rotate it ninety degrees. Pieces act as mirrors to steer the laser.</p>
-    <p>Khet is played on a 10 square by 8 square board by two players, <b>silver</b> (blueish on this site) and <b>red</b> (orangeish). Some of the squares on the board are also silver and red.</p>
-    <p>The <b>files</b> (columns) are labelled <b>a&ndash;j</b> starting from the left and the <b>ranks</b> (rows) are labelled <b>1&ndash;8</b> starting from the bottom. Squares on the board are named by their file plus rank.</p>
+    <p>Khet is played on a 10 square by 8 square board by two players, <b>silver</b> and <b>red</b>. Some of the squares on the board are also silver and red.</p>
+    <p>The <b>files</b> (columns) are labelled <b>a&ndash;j</b> starting from the left and the <b>ranks</b> (rows) are labelled <b>1&ndash;8</b> starting from the bottom. Squares on the board are named by their file and rank.</p>
     <figure>
       <img src="art/board.png" width="320">
       <figcaption>The Khet board.</figcaption>
@@ -18,9 +18,9 @@
     <p>There are four types of piece in Khet, which each occupy a single square: <b>pharoahs</b>, <b>djeds</b>, <b>pyramids</b>, and <b>obelisks</b>. Obelisks can <b>stack</b> so that two sit on one square. Stacked obelisks act as one piece in all respects. Each piece is either silver or red.</p>
     <figure>
       <img src="art/pieces.png">
-      <figcaption>The pieces. From left to right: pharoah, djed, pyramid, obelisk, two obelisks stacked. The top row is silver, the bottom row is red.</figcaption>
+      <figcaption>The pieces. From left to right: pharoah, djed, pyramid, obelisk, two obelisks stacked.</figcaption>
     </figure>
-    <p>Each game consists of a sequence of <b>moves</b> which are each composed of two <b>plies</b> (turns). Silver always starts. Each ply, a player either moves or rotates a single piece. Every piece moves one space either orthogonally or diagonally. The destination must be empty of pieces, except that djeds switch places with pieces in squares they move into. Rotations are always ninety degrees and can be either clockwise or anticlockwise. A silver piece may not move into a red square and a red piece may not move into a silver square. In the case of a stacked obelisk, the player may move only the top obelisk or both obelisks at the same time.</p>
+    <p>Each game consists of a sequence of <b>moves</b> which are each composed of two <b>plies</b> (turns). Silver always starts. Each ply, a player either moves or rotates a single piece. Every piece moves one space either orthogonally or diagonally. The destination must be empty, except that djeds may move into occupied squares, switching places with the pieces already there. Rotations are always ninety degrees and can be either clockwise or anticlockwise. A silver piece may not move into a red square and a red piece may not move into a silver square. In the case of a stacked obelisk, the player may move only the top obelisk or both obelisks at the same time.</p>
     <figure>
       <img src="art/move.png">
       <figcaption>A legal ply for silver.</figcaption>
