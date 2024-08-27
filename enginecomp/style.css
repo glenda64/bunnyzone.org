@@ -32,3 +32,9 @@ img, canvas {
 figcaption {
   text-align: center;
 }
+
+code {
+  font-family: "Fira Code", monospace;
+  background-color: #ddd;
+  padding: 0 4px;
+}
