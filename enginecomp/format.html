@@ -11,10 +11,52 @@
     <p>This format depends on adaptations of Chess's algebraic notation (AN) and Forysth-Edwards notation (FEN) to Khet.</p>
     <h2>Algebraic notation</h2>
     <p>Algebraic notation is a format for writing plies. To write a ply:</p>
-    <p><b>TODO!!!</b></p>
+    <ul>
+      <li>Write a letter corresponding to the type of the piece that acted: <code>P</code> for pharoahs, <code>D</code> for djeds, <code>Y</code> for pyramids, <code>O</code> for unstacked obelisks, and <code>S</code> for pairs of stacked obelisks.</li>
+      <li>If there is a piece of the same type and colour in the same rank, write the file letter. If there is a piece of the same type and colour in the file, write the rank number.</li>
+      <li>If the piece moved:
+        <ul>
+          <li>Write the file letter and rank number for the destination square.</li>
+          <li>Write <code>s</code> if an obelisk stacked, or <code>o</code> if an obelisk unstacked.</li>
+        </ul>
+      </li>
+      <li>If the piece rotated:
+        <ul>
+          <li>Write <code>r</code>.</li>
+          <li>Write a number corresponding to the new rotation:
+            <ul>
+              <li>For a djed: <code>1</code> if it slopes from top-left to bottom-right, <code>2</code> if it slopes the opposite way.</li>
+              <li>For a pyramid: <code>1</code> if its mirrored side faces up and right, <code>2</code>, <code>3</code>, and <code>4</code> representing clockwise rotations from there.</li>
+              <li>For another kind of piece: don't write any rotation number.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>If a piece was destroyed:
+        <ul>
+          <li>Write "x".</li>
+          <li>Write the letter for the type of piece that was destroyed.</li>
+          <li>If there is a piece of the same type and colour in the same rank, write the file letter. If there is a piece of the same type and colour in the file, write the rank number.</li>
+        </ul>
+      </li>
+    </ul>
     <p>Examples:</p>
     <p><b>TODO!!!</b></p>
     <h2>Forsyth-Edwards notation</h2>
+    <p>Forsyth-Edwards notation is a notation for writing game states. To write a board state, write each of the following separated by a space:</p>
+    <ul>
+      <li>Starting at the bottom-left of the board, moving across ranks:
+        <ul>
+          <li>If the rank is empty, write nothing.</li>
+          <li>If a square is empty, write <code>.</code>. If there are more empty square to the immediate right, write how many, plus one.</li>
+          <li>If a square is occupied by a piece, write its piece letter (the same as in AN). If the piece is a pyramid or djed, write the rotation number.</li>
+          <li>At the end of the rank, write <code>/</code>, then write the next rank up.</li>
+        </ul>
+      </li>
+      <li>If it is silver's turn to move, write <code>s</code>. If it is red's turn to move, write <code>r</code>.</li>
+      <li>Write the number of plies since a piece was destroyed. This value starts at 0 and resets after every piece is destroyed.</li>
+      <li>Write the move number. This value starts at 1 and increments for every move.</li>
+    </ul>
     <p>Examples:</p>
     <p><b>TODO!!!</b></p>
     <h2>Communication format</h2>
