@@ -57,7 +57,7 @@ function step() {
 }
 
 function tick() {
-  for (let i = 0; i < w*h; i ++) {
+  for (let i = 0; i < w*h; i++) {
     id.data[i*4    ] = grid[i] == 1 ? on.r : off.r;
     id.data[i*4 + 1] = grid[i] == 1 ? on.g : off.g;
     id.data[i*4 + 2] = grid[i] == 1 ? on.b : off.b;
