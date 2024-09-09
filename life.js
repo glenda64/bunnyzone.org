@@ -1,4 +1,4 @@
-window.onload = () => { setup(); setInterval(tick, 250); }
+window.onload = () => { setup(); tick(); setInterval(tick, 250); }
 
 let canvas, ctx, id, grid, grid2, w, h, t;
 const density = 0.2;
