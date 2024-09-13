@@ -1,4 +1,4 @@
-window.onload = () => { setup(); tick(); setInterval(tick, 250); }
+window.onload = () => { setup(); tick(); setInterval(tick, 500); }
 
 let canvas, ctx, id, grid, grid2, w, h, t;
 const density = 0.2;
@@ -10,6 +10,7 @@ function randomize() {
   grid = new Uint8Array(w*h);
   grid2 = new Uint8Array(w*h);
   for (let i = 0; i < w*h; i++) {
+    // generate the initial grid using perlin noise?
     grid[i] = Math.random() < density ? 1 : 0;
     grid2[i] = 0;
   }
